@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bezier</title>
+    <style type="text/css">
+
+#nike{
+    position:absolute;
+    top:30px;left:30px;
+    width:470px;height:200px;
+    overflow:hidden;
+    font-family: Arial, sans-serif;
+    font-size:40px;
+    line-height: 300px;
+    text-indent: 350px;
+    z-index: 3;
+}
+
+#nike:before{
+    content:"";
+    position:absolute;
+    top:-250px;
+    left:190px;
+    width: 150px;
+    height:550px;
+    background: black;
+    border-top-left-radius: 60px 110px;
+    border-top-right-radius: 130px 220px;
+    transform: rotate(-113deg);
+    z-index: 1;
+}
+
+#nike:after {
+    content: "";
+    position: absolute;
+    top: -235px;
+    left: 220px;
+    width: 120px;
+    height: 500px;
+    background: black;
+    border-top-left-radius: 60px  110px;
+    border-top-right-radius: 130px 220px;
+    background: white;
+    transform: rotate(-104deg);
+    z-index: 2;
+}
+
+.yinyang {
+  position: relative;
+  background: #fff;
+  height: 100px;
+  border-color: #000;
+  border-style: solid;
+  width: 50px; 
+  border-width: 2px 50px 2px 2px;
+  border-radius: 50%;
+  animation: roll 40000s infinite;
+} 
+
+.yinyang:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background: #fff;
+  border: 18px solid #000;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  }
+
+
+.yinyang:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #000;
+  border: 18px solid #fff;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+}
+
+    </style>
+
+</head>
+<body>
+ <div id="nike">
+    </div>
+    <br><br>
+ <div style="position: absolute; top: 50px; left: 50px;">
+<canvas id="canvas" width="500" height="500">
+ <br><br>
+<div class="yinyang"></div>
+</canvas> 
+<script type="text/javascript">
+    let theCanvas = document.getElementById('canvas');
+    let context = theCanvas.getContext('2d');
+
+         
+                
+         context.fillStyle = "red"; 
+         context.beginPath(); 
+          context.moveTo(75, 250); 
+          context.bezierCurveTo(75, 247, 70, 235, 50, 235); 
+          context.bezierCurveTo(20, 235, 20, 272.5, 20, 272); 
+          context.bezierCurveTo(20, 290, 40, 312, 75, 330); 
+          context.bezierCurveTo(110, 312, 130, 290, 130, 272); 
+          context.bezierCurveTo(130, 272.5, 130, 235, 100, 235); 
+          context.bezierCurveTo(85, 235, 75, 247, 75, 250); 
+          context.closePath(); 
+          context.fill();   context.stroke(); 
+
+  
+</script>  
+</body>
+</html>
